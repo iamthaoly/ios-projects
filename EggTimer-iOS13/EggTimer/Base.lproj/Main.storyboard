@@ -121,6 +121,21 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="346" width="288" height="134"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e3j-6q-a3Q">
+                                                <rect key="frame" x="0.0" y="64.5" width="288" height="6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="QPI-ag-w9s"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="e3j-6q-a3Q" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="OJ9-91-rGl"/>
+                                            <constraint firstAttribute="trailing" secondItem="e3j-6q-a3Q" secondAttribute="trailing" id="q4I-3W-eZE"/>
+                                            <constraint firstItem="e3j-6q-a3Q" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="xAA-hy-XPt"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -138,6 +153,8 @@
                         <outlet property="btnHard" destination="NEu-V5-iHi" id="BFh-IK-tmL"/>
                         <outlet property="btnMed" destination="Q3H-nl-7AG" id="vrf-mB-gvt"/>
                         <outlet property="btnSoft" destination="kNr-Dp-1Dg" id="cQ7-hJ-lSB"/>
+                        <outlet property="lblTitle" destination="XLm-5r-pSP" id="Vfx-c1-vot"/>
+                        <outlet property="pvTimer" destination="e3j-6q-a3Q" id="kSj-9I-IWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

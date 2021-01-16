@@ -14,27 +14,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnMed: UIButton!
     @IBOutlet weak var btnHard: UIButton!
     
-//    let softTime = 5, medTime = 7, hardTime = 12
+    @IBOutlet weak var pvTimer: UIProgressView!
+    @IBOutlet weak var lblTitle: UILabel!
+    
+    //    let softTime = 5, medTime = 7, hardTime = 12
     let eggTimes = ["Soft": 5, "Medium": 7, "Hard": 12]
-    var timer: Timer? = nil
+    var timer = Timer()
+    var current = 10
     var total = 10
     
     @IBAction func selectH(_ sender: UIButton) {
+        pvTimer.progress = 0.0
+        
         debugPrint(sender.currentTitle ?? "Not good..")
         let hardness = sender.currentTitle
         guard let time = eggTimes[hardness!] else {return}
         print(time)
         
+        current = time
         total = time
-        if timer != nil {
-            timer!.invalidate()
-        }
+        timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(update), userInfo: nil, repeats: true)
     }
     @objc func update() {
-        if(total > 0) {
-            print("\(total) remaining..")
-            total -= 1
+        pvTimer.progress = 1.0 - (Float(current) / Float(total))
+        if(current > 0) {
+            print("\(current) remaining..")
+            current -= 1
+        }
+        else {
+            print("Done")
+            lblTitle.text = "DONE!"
+            timer.invalidate()
         }
     }
 }
